@@ -1,0 +1,62 @@
+.book-list-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  .book-list-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-bottom: 2px solid #6c63ff;
+    padding-bottom: 10px;
+  }
+  
+  .book-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .book-item {
+    background-color: #ffffff;
+    margin: 12px 0;
+    padding: 18px 20px;
+    border-left: 5px solid #6c63ff;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .book-item:hover {
+    background-color: #f1f3f5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .book-item strong {
+    color: #2d2d2d;
+    font-size: 1.1rem;
+  }
+  
+  .book-item button {
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .book-item button:hover {
+    background-color: #e84118;
+  }
+  
