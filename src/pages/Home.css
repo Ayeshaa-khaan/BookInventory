@@ -1,41 +1,103 @@
-/* src/pages/Home.css */
+/* Main Container */
 .home-container {
-    text-align: center;
-    padding: 5rem 2rem;
-    background: linear-gradient(to right, #f5f7fa, #c3cfe2);
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  text-align: center;
+}
+
+/* Content Wrapper */
+.home-content {
+  max-width: 800px;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Typography */
+.home-title {
+  font-size: 3rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.home-subtitle {
+  font-size: 1.5rem;
+  color: #7f8c8d;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+/* Buttons Container */
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Button Styles */
+.home-button {
+  border: none;
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.add-btn {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.add-btn:hover {
+  background-color: #27ae60;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+}
+
+.view-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.view-btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-content {
+    padding: 2rem;
   }
   
-  .home-container h1 {
-    font-size: 3rem;
-    color: #333;
-    margin-bottom: 1rem;
+  .home-title {
+    font-size: 2.2rem;
   }
   
-  .home-container p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    color: #555;
+  .home-subtitle {
+    font-size: 1.2rem;
   }
   
   .home-buttons {
-    display: flex;
-    justify-content: center;
+    flex-direction: column;
     gap: 1rem;
   }
   
-  .home-buttons button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    font-size: 1rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+  .home-button {
+    width: 100%;
+    justify-content: center;
   }
-  
-  .home-buttons button:hover {
-    background-color: #0056b3;
-  }
-  
+}

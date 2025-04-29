@@ -1,17 +1,28 @@
-// src/pages/Home.jsx
-import { useNavigate } from "react-router-dom";
-import "./Home.css";
+import './Home.css';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const navigate = useNavigate();
 
   return (
     <div className="home-container">
-      <h1>📚 Welcome to Book Inventory</h1>
-      <p>Manage your library with ease!</p>
-      <div className="home-buttons">
-        <button onClick={() => navigate("/add-book")}>➕ Add New Book</button>
-        <button onClick={() => navigate("/books")}>📖 View Book List</button>
+      <div className="home-content">
+        <h1 className="home-title">📚 Welcome to Book Inventory</h1>
+        <p className="home-subtitle">Manage your library with ease!</p>
+        <div className="home-buttons">
+          <button 
+            className="home-button add-btn"
+            onClick={() => navigate('/add')}
+          >
+            ➕ Add Book
+          </button>
+          <button 
+            className="home-button view-btn"
+            onClick={() => navigate('/list')}
+          >
+            📖 View Books
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,33 +1,26 @@
-// src/pages/AddBook.jsx
-import React, { useState } from 'react';
 import './AddBook.css';
+import { useState } from 'react';
+import useBookInventory from '../components/BookInventory';
 
-const AddBook = ({ addBook }) => {
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [genre, setGenre] = useState('');
-  const [price, setPrice] = useState('');
+const AddBook = () => {
+  const { addBook } = useBookInventory();
+  const [form, setForm] = useState({ 
+    title: '', 
+    author: '', 
+    genre: '', 
+    price: '' 
+  });
   const [message, setMessage] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      title.trim() === '' ||
-      author.trim() === '' ||
-      genre.trim() === '' ||
-      price.trim() === '' ||
-      isNaN(price)
-    ) {
-      setMessage('Please fill in all fields correctly.');
+    if (!form.title || !form.author || !form.genre || isNaN(form.price)) {
+      setMessage('Please fill all fields correctly!');
       return;
     }
-
-    addBook({ title, author, genre, price: Number(price) });
+    addBook({ ...form, price: Number(form.price) });
+    setForm({ title: '', author: '', genre: '', price: '' });
     setMessage('Book added successfully!');
-    setTitle('');
-    setAuthor('');
-    setGenre('');
-    setPrice('');
   };
 
   return (
@@ -36,27 +29,32 @@ const AddBook = ({ addBook }) => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Book Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          value={form.title}
+          onChange={(e) => setForm({ ...form, title: e.target.value })}
+          placeholder="Title"
+          required
         />
         <input
           type="text"
-          placeholder="Author Name"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
+          value={form.author}
+          onChange={(e) => setForm({ ...form, author: e.target.value })}
+          placeholder="Author"
+          required
         />
         <input
           type="text"
+          value={form.genre}
+          onChange={(e) => setForm({ ...form, genre: e.target.value })}
           placeholder="Genre"
-          value={genre}
-          onChange={(e) => setGenre(e.target.value)}
+          required
         />
         <input
-          type="text"
-          placeholder="Price"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
+          type="number"
+          value={form.price}
+          onChange={(e) => setForm({ ...form, price: e.target.value })}
+          placeholder="Price (₹)"
+          required
+          min="0"
         />
         <button type="submit">Add Book</button>
       </form>
