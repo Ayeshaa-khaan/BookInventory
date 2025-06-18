@@ -1,64 +1,70 @@
-import './AddBook.css';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import useBookInventory from '../components/BookInventory';
+ // adjust path if needed
+import './AddBook.css';
 
 const AddBook = () => {
   const { addBook } = useBookInventory();
-  const [form, setForm] = useState({ 
-    title: '', 
-    author: '', 
-    genre: '', 
-    price: '' 
+  const [form, setForm] = useState({
+    title: '',
+    author: '',
+    price: '',
   });
-  const [message, setMessage] = useState('');
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!form.title || !form.author || !form.genre || isNaN(form.price)) {
-      setMessage('Please fill all fields correctly!');
+
+    if (!form.title || !form.author || !form.price) {
+      toast.error('Please fill in all fields');
       return;
     }
-    addBook({ ...form, price: Number(form.price) });
-    setForm({ title: '', author: '', genre: '', price: '' });
-    setMessage('Book added successfully!');
+
+    const newBook = {
+      title: form.title,
+      author: form.author,
+      price: parseFloat(form.price),
+    };
+
+    addBook(newBook);
+    toast.success('Book added successfully!');
+    setForm({ title: '', author: '', price: '' });
   };
 
   return (
     <div className="add-book-container">
-      <h2>Add a New Book</h2>
-      <form onSubmit={handleSubmit}>
+      <h2>Add New Book</h2>
+      <form onSubmit={handleSubmit} className="add-book-form">
         <input
           type="text"
+          name="title"
+          placeholder="Book Title"
           value={form.title}
-          onChange={(e) => setForm({ ...form, title: e.target.value })}
-          placeholder="Title"
+          onChange={handleChange}
           required
         />
         <input
           type="text"
-          value={form.author}
-          onChange={(e) => setForm({ ...form, author: e.target.value })}
+          name="author"
           placeholder="Author"
-          required
-        />
-        <input
-          type="text"
-          value={form.genre}
-          onChange={(e) => setForm({ ...form, genre: e.target.value })}
-          placeholder="Genre"
+          value={form.author}
+          onChange={handleChange}
           required
         />
         <input
           type="number"
+          name="price"
+          placeholder="Price (PKR)"
           value={form.price}
-          onChange={(e) => setForm({ ...form, price: e.target.value })}
-          placeholder="Price (₹)"
+          onChange={handleChange}
           required
-          min="0"
         />
-        <button type="submit">Add Book</button>
+        <button type="submit">➕ Add Book</button>
       </form>
-      {message && <p className="message">{message}</p>}
     </div>
   );
 };

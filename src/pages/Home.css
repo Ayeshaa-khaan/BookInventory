@@ -1,103 +1,76 @@
-/* Main Container */
 .home-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 2rem;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(135deg, #e0f7fa, #80cbc4);
   text-align: center;
+  padding: 2rem;
 }
 
-/* Content Wrapper */
 .home-content {
-  max-width: 800px;
+  max-width: 700px;
   padding: 3rem;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Typography */
 .home-title {
   font-size: 3rem;
-  color: #2c3e50;
+  color: #00695c;
   margin-bottom: 1.5rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .home-subtitle {
-  font-size: 1.5rem;
-  color: #7f8c8d;
+  font-size: 1.3rem;
+  color: #455a64;
   margin-bottom: 3rem;
-  line-height: 1.6;
 }
 
-/* Buttons Container */
 .home-buttons {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-/* Button Styles */
 .home-button {
   border: none;
-  font-size: 1.1rem;
   padding: 1rem 2rem;
-  border-radius: 12px;
+  border-radius: 10px;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  color: white;
 }
 
 .add-btn {
-  background-color: #2ecc71;
-  color: white;
+  background-color: #00796b;
 }
-
 .add-btn:hover {
-  background-color: #27ae60;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+  background-color: #004d40;
 }
 
 .view-btn {
-  background-color: #3498db;
-  color: white;
+  background-color: #0288d1;
 }
-
 .view-btn:hover {
-  background-color: #2980b9;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+  background-color: #01579b;
 }
 
-/* Responsive Design */
+.order-btn {
+  background-color: #43a047;
+}
+.order-btn:hover {
+  background-color: #2e7d32;
+}
+
 @media (max-width: 768px) {
-  .home-content {
-    padding: 2rem;
-  }
-  
-  .home-title {
-    font-size: 2.2rem;
-  }
-  
-  .home-subtitle {
-    font-size: 1.2rem;
-  }
-  
   .home-buttons {
     flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .home-button {
-    width: 100%;
-    justify-content: center;
+    gap: 0.75rem;
   }
 }
